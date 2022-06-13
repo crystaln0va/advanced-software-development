@@ -1,10 +1,13 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy;
 
 public class GoldStrategy implements InterestStrategy {
-    private static final double MP = 0.10;
+    @Override
+    public double getInterestPercentage() {
+        return 0.06;
+    }
 
     @Override
-    public double getMinimumPayment(double balance) {
-        return balance * MP;
+    public double minimumPaymentPercentage() {
+        return 0.10;
     }
 }
