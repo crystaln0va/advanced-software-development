@@ -15,7 +15,7 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_str
 public class AccountImpl implements Account , Subject {
     private AccountType accountType;
     private InterestStrategy interestStrategy;
-private List<Transaction> transactions = new ArrayList<>();
+    private List<Transaction> transactions = new ArrayList<>();
     private String accountNumber;
 
 
@@ -52,9 +52,11 @@ private List<Transaction> transactions = new ArrayList<>();
 
     @Override
     public Transaction withdraw(double amount) {
-        balance -= amount;
-
-        return createTransaction("WITHDRAW", amount);
+        if(balance >= amount){
+            balance -= amount;
+            return createTransaction("WITHDRAW", amount);
+        }
+        return null;
     }
 
     @Override
