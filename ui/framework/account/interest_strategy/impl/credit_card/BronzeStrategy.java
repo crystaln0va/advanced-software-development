@@ -10,7 +10,7 @@ public class BronzeStrategy implements InterestStrategy {
 
     @Override
     public double calculateInterest(double balance) {
-        return  balance * 0.1;
+        return   balance *getInterestPercentage();
     }
 
     @Override

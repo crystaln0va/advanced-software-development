@@ -1,17 +1,18 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account;
 
 
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.ObserverPattern.Observer;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.ObserverPattern.Subject;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type.AccountType;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Client;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.InterestStrategy;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountImpl implements Account, Subject {
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.ObserverPattern.Observer;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.ObserverPattern.Subject;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type.AccountType;
+
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Client;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.InterestStrategy;
+
+public class AccountImpl implements Account , Subject {
     private AccountType accountType;
     private InterestStrategy interestStrategy;
     private List<Transaction> transactions = new ArrayList<>();
@@ -24,6 +25,16 @@ public class AccountImpl implements Account, Subject {
         return balance;
     }
 
+    @Override
+    public String toString() {
+        return "AccountImpl{" +
+                "accountType=" + accountType +
+                ", interestStrategy=" + interestStrategy +
+                ", transactions=" + transactions +
+                ", accountNumber='" + accountNumber + '\'' +
+                ", balance=" + balance +
+                '}';
+    }
 
     private Transaction createTransaction(String description, double amount){
         Transaction transaction = new Transaction(LocalDate.now(), description, amount);
@@ -50,8 +61,6 @@ public class AccountImpl implements Account, Subject {
 
     @Override
     public void addInterest() {
-
-        //balance += balance * interestStrategy.getInterestPercentage();
          balance += interestStrategy.calculateInterest(balance);
     }
 //Observer Send Email

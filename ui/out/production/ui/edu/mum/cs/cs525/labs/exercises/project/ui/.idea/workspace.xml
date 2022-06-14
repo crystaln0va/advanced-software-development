@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="311dd749-2e0e-4a89-95f1-fcf4e8e25717" name="Changes" comment="Latest changes and updates">
+      <change beforePath="$PROJECT_DIR$/framework/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/framework/account/FileMemoryAccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/account/FileMemoryAccountDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/data_store/Banking" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/FileMemoryAccountDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/FileMemoryAccountDao.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2AXGDkGIP7B30kJGnBV7gQVM92F" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager" selected="Application.Application">
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.mum.cs.cs525.labs.exercises.project.ui.framework.Application" />
+      <module name="ui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.mum.cs.cs525.labs.exercises.project.ui.framework.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BankFrm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.mum.cs.cs525.labs.exercises.project.ui.bank.BankFrm" />
+      <module name="ui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.mum.cs.cs525.labs.exercises.project.ui.bank.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CardFrm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.mum.cs.cs525.labs.exercises.project.ui.ccard.CardFrm" />
+      <module name="ui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.mum.cs.cs525.labs.exercises.project.ui.ccard.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileMemoryAccountDao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.FileMemoryAccountDao" />
+      <module name="ui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Application" />
+        <item itemvalue="Application.FileMemoryAccountDao" />
+        <item itemvalue="Application.CardFrm" />
+        <item itemvalue="Application.BankFrm" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="311dd749-2e0e-4a89-95f1-fcf4e8e25717" name="Changes" comment="" />
+      <created>1655148399086</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655148399086</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Skeleton">
+      <created>1655152788827</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1655152788827</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Latest changes and updates">
+      <created>1655232720353</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1655232720353</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Skeleton" />
+    <MESSAGE value="Latest changes and updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Latest changes and updates" />
+  </component>
+</project>
