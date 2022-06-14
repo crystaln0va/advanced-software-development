@@ -4,12 +4,16 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Client;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.InterestStrategy;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 
 public class AccountImpl implements Account {
     private AccountType accountType;
     private InterestStrategy interestStrategy;
     private String accountNumber;
+    private List<Transaction> transactions = new ArrayList<>();
 
     private double balance = 0;
 
@@ -17,16 +21,22 @@ public class AccountImpl implements Account {
         return balance;
     }
 
+    private void createTransaction(String description, double amount){
+        transactions.add(new Transaction(LocalDate.now(), description, amount));
+    }
+
     private AccountImpl() {}
 
     @Override
     public void deposit(double amount) {
         balance += amount;
+        createTransaction("DEPOSIT", amount);
     }
 
     @Override
     public void withdraw(double amount) {
         balance -= amount;
+        createTransaction("WITHDRAW", amount);
     }
 
     @Override
