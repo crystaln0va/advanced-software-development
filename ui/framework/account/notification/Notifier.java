@@ -25,6 +25,8 @@ public class Notifier implements Observer{
             sb.append("Date " + date);
             sb.append("amount " + amount);
             sb.append("Description " + description);
+            sb.toString();
+            System.out.println(sb);
 
         }
     }
