@@ -9,6 +9,8 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_str
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.impl.credit_card.GoldStrategy;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.impl.banking_account.SavingAccountStrategy;
 
+
+
 public class Application {
     public static void main(String[] args) {
         AccountService accountService = new AccountServiceImpl(new TestingFactory());
@@ -26,5 +28,7 @@ public class Application {
         accountService.getReport();
         accountService.addInterest();
         accountService.getReport();
+
+
     }
 }
