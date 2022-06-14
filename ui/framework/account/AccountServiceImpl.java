@@ -1,5 +1,4 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account;
-
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type.AccountType;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.factory.AccountFactory;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.InterestStrategy;
@@ -32,7 +31,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public String getReport() {
-        accountDao.getAllAccounts().forEach(account -> System.out.println(account.getBalance()));
+        accountDao.getAllAccounts().forEach(account -> System.out.println(account.getAccountNumber()+"-"+ account.getBalance()));
         return null;
     }
 
@@ -40,6 +39,8 @@ public class AccountServiceImpl implements AccountService {
     public void addInterest() {
         List<Account> accounts = accountDao.getAllAccounts();
         accounts.forEach(Account::addInterest);
+        accounts.forEach(account -> accountDao.saveAccount(account));
+
     }
 
     @Override
