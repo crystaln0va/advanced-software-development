@@ -7,7 +7,7 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.FileMemoryAc
 public class BankingFactory implements AccountFactory{
     @Override
     public AccountDao getAccountDao() {
-        return new FileMemoryAccountDao("banking");
+        return FileMemoryAccountDao.getInstance("Banking");
     }
 
     @Override

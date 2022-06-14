@@ -1,8 +1,9 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Transaction {
+public class Transaction implements Serializable {
     private LocalDate date;
     private String description;
     private Double amount;

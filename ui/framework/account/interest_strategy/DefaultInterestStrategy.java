@@ -8,6 +8,11 @@ public class DefaultInterestStrategy implements InterestStrategy {
     }
 
     @Override
+    public double calculateInterest(double balance) {
+        return 0;
+    }
+
+    @Override
     public double minimumPaymentPercentage() {
         return 0;
     }

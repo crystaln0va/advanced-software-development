@@ -7,6 +7,11 @@ public class GoldStrategy implements InterestStrategy {
     }
 
     @Override
+    public double calculateInterest(double balance) {
+        return 0;
+    }
+
+    @Override
     public double minimumPaymentPercentage() {
         return 0.10;
     }

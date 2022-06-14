@@ -1,7 +1,9 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy;
 
 
-public interface InterestStrategy {
+import java.io.Serializable;
+
+public interface InterestStrategy extends Serializable {
     double getInterestPercentage();
     double calculateInterest(double balance);
 
