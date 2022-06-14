@@ -36,22 +36,25 @@ private List<Transaction> transactions = new ArrayList<>();
                 '}';
     }
 
-    private void createTransaction(String description, double amount){
-        transactions.add(new Transaction(LocalDate.now(), description, amount));
+    private Transaction createTransaction(String description, double amount){
+        Transaction transaction = new Transaction(LocalDate.now(), description, amount);
+        transactions.add(transaction);
+        return transaction;
     }
 
     private AccountImpl() {}
 
     @Override
-    public void deposit(double amount) {
+    public Transaction deposit(double amount) {
         balance += amount;
-        createTransaction("DEPOSIT", amount);
+        return createTransaction("DEPOSIT", amount);
     }
 
     @Override
-    public void withdraw(double amount) {
+    public Transaction withdraw(double amount) {
         balance -= amount;
-        createTransaction("WITHDRAW", amount);
+
+        return createTransaction("WITHDRAW", amount);
     }
 
     @Override
