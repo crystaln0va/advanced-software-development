@@ -6,13 +6,16 @@ import java.util.List;
 
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.ObserverPattern.Observer;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.ObserverPattern.Subject;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type.AccountType;
 
+
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type_strategy.AccountTypeStrategy;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Client;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.InterestStrategy;
 
-public class AccountImpl implements Account, Subject {
-    private AccountType accountType;
+
+public class AccountImpl implements Account , Subject {
+    private AccountTypeStrategy accountType;
+
     private InterestStrategy interestStrategy;
     private List<Transaction> transactions = new ArrayList<>();
     private String accountNumber;
@@ -91,10 +94,11 @@ public class AccountImpl implements Account, Subject {
 
     static class Builder {
         String accountNumber;
-        AccountType accountType;
+        AccountTypeStrategy accountType;
         InterestStrategy interestStrategy;
 
-        public Builder(String accountNumber, AccountType accountType, InterestStrategy interestStrategy) {
+        public Builder(String accountNumber, AccountTypeStrategy accountType, InterestStrategy interestStrategy){
+
             this.accountType = accountType;
             this.accountNumber = accountNumber;
             this.interestStrategy = interestStrategy;
