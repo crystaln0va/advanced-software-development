@@ -26,6 +26,9 @@ public class AccountImpl implements Account {
 
     @Override
     public void withdraw(double amount) {
+
+       if( getBalance() < amount)
+
         balance -= amount;
     }
 
