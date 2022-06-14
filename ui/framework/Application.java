@@ -5,14 +5,14 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.AccountServi
 
 
 
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type_strategy.CompanyAccount;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type_strategy.CreditCardAccount;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type_strategy.PersonalAccount;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.factory.BankingFactory;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.factory.CreditCardFactory;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.impl.banking_account.CheckingAccountStrategy;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.impl.credit_card.GoldStrategy;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.impl.banking_account.SavingAccountStrategy;
+import edu.mum.cs.cs525.labs.exercises.project.ui.bank.CompanyAccount;
+import edu.mum.cs.cs525.labs.exercises.project.ui.ccard.CreditCardAccount;
+import edu.mum.cs.cs525.labs.exercises.project.ui.bank.PersonalAccount;
+import edu.mum.cs.cs525.labs.exercises.project.ui.bank.BankingFactory;
+import edu.mum.cs.cs525.labs.exercises.project.ui.ccard.CreditCardFactory;
+import edu.mum.cs.cs525.labs.exercises.project.ui.bank.CheckingAccountStrategy;
+import edu.mum.cs.cs525.labs.exercises.project.ui.ccard.GoldStrategy;
+import edu.mum.cs.cs525.labs.exercises.project.ui.bank.SavingAccountStrategy;
 
 
 public class Application {

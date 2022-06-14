@@ -1,11 +1,12 @@
-package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.factory;
+package edu.mum.cs.cs525.labs.exercises.project.ui.bank;
 
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.Account;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.AccountDao;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.FileMemoryAccountDao;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.factory.AccountFactory;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.notification.Rule;
 
-public class TestingFactory implements AccountFactory {
+public class BankingFactory implements AccountFactory {
     @Override
     public AccountDao getAccountDao() {
         return FileMemoryAccountDao.getInstance("Banking");
@@ -18,6 +19,6 @@ public class TestingFactory implements AccountFactory {
 
     @Override
     public Rule getNotificationRule() {
-        return null;
+        return new PersonalBankingNotifier();
     }
 }

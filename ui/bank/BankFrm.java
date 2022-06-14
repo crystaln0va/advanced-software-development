@@ -1,5 +1,8 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.bank;
 
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.AccountService;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.AccountServiceImpl;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
@@ -21,10 +24,12 @@ public class BankFrm extends javax.swing.JFrame
     private JScrollPane JScrollPane1;
     BankFrm myframe;
     private Object rowdata[];
+	private AccountService service;
     
 	public BankFrm()
 	{
 		myframe = this;
+		service = new AccountServiceImpl(new BankingFactory());
 
 		setTitle("Bank Application.");
 		setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
