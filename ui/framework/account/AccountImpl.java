@@ -41,8 +41,11 @@ public class AccountImpl implements Account, Subject {
 
     @Override
     public Transaction withdraw(double amount) {
-        balance -= amount;
-        return createTransaction("WITHDRAW", amount);
+        if(balance >= amount){
+            balance -= amount;
+            return createTransaction("WITHDRAW", amount);
+        }
+        return null;
     }
 
     @Override
