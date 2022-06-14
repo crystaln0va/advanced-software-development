@@ -1,21 +1,20 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account;
 
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Predicate;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.ObserverPattern.Observer;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.ObserverPattern.Subject;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type.AccountType;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type.AccountTypeOld;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Client;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.InterestStrategy;
 
-public class AccountImpl implements Account , Subject {
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+public class AccountImpl implements Account, Subject {
     private AccountType accountType;
     private InterestStrategy interestStrategy;
-private List<Transaction> transactions = new ArrayList<>();
+    private List<Transaction> transactions = new ArrayList<>();
     private String accountNumber;
 
 
@@ -35,16 +34,12 @@ private List<Transaction> transactions = new ArrayList<>();
     @Override
     public void deposit(double amount) {
         balance += amount;
-
         createTransaction("DEPOSIT", amount);
-
     }
 
     @Override
     public void withdraw(double amount) {
         balance -= amount;
-
-
         createTransaction("WITHDRAW", amount);
 
     }
