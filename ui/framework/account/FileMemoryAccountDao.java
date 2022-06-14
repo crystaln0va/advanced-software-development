@@ -52,6 +52,11 @@ public class FileMemoryAccountDao implements AccountDao {
         Object retVal = null;
         try {
             Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, filename);
+            if (!Files.exists(path)) {
+                File file = new File(path.toString());
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            }
             in = new ObjectInputStream(Files.newInputStream(path));
             retVal = in.readObject();
         } catch(Exception e) {
