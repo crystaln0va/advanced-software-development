@@ -26,16 +26,23 @@ public class AccountServiceImpl implements AccountService, Subject {
     @Override
     public void deposit(String accountNumber, double amount) {
         Account account = accountDao.getAccountByAccountNumber(accountNumber);
-        account.deposit(amount);
+        Transaction transaction = account.deposit(amount);
         accountDao.saveAccount(account);
-        notifyChanges(amount);
+        boolean isApproved = true;
+        notifyChanges(transaction, isApproved);
     }
 
     @Override
     public void withdraw(String accountNumber, double amount) {
         Account account = accountDao.getAccountByAccountNumber(accountNumber);
-        account.withdraw(amount);
+        Transaction transaction = account.withdraw(amount);
+
+        boolean isApproved = true;
+        if(transaction == null)
+            isApproved = false;
+
         accountDao.saveAccount(account);
+        notifyChanges(transaction, isApproved);
     }
 
     @Override
@@ -72,9 +79,9 @@ public class AccountServiceImpl implements AccountService, Subject {
     }
 
     @Override
-    public void notifyChanges(double amount, boolean isApproved) {
+    public void notifyChanges(Transaction transaction, boolean isApproved) {
         for(Observer o : observers)
-            o.update(amount, isApproved );
+            o.update(transaction, isApproved );
 
     }
 }
