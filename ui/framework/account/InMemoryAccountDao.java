@@ -18,6 +18,7 @@ public enum InMemoryAccountDao implements AccountDao {
     }
 
     public List<Account> getAllAccounts(){
+
         return accounts.values().stream().toList();
     }
 }

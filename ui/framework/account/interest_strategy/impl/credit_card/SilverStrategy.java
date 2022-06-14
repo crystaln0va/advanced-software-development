@@ -10,7 +10,7 @@ public class SilverStrategy implements InterestStrategy {
 
     @Override
     public double calculateInterest(double balance) {
-        return   balance * 0.08;
+        return   balance *getInterestPercentage();
     }
 
     @Override
