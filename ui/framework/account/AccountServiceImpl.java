@@ -1,5 +1,6 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type.AccountType;
+
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type_strategy.AccountTypeStrategy;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.factory.AccountFactory;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.InterestStrategy;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.notification.Notifier;
@@ -60,7 +61,7 @@ public class AccountServiceImpl implements AccountService, Subject {
     }
 
     @Override
-    public void createNewAccount(String accountNumber, AccountType accountType, InterestStrategy strategy) {
+    public void createNewAccount(String accountNumber, AccountTypeStrategy accountType, InterestStrategy strategy) {
         Account account = new AccountImpl
                 .Builder(accountNumber, accountType, strategy)
                 .build();
