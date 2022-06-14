@@ -15,13 +15,13 @@ public class Application {
     public static void main(String[] args) {
         AccountService accountService = new AccountServiceImpl(new TestingFactory());
 
-        accountService.createNewAccount("12345", AccountType.CreditCard, new GoldStrategy());
+//        accountService.createNewAccount("12345", AccountType.CreditCard, new GoldStrategy());
         accountService.deposit("12345", 50);
 
-        accountService.createNewAccount("987456", AccountType.Personal, new CheckingAccountStrategy());
+//        accountService.createNewAccount("987456", AccountType.Personal, new CheckingAccountStrategy());
         accountService.deposit("987456", 5000);
 
-        accountService.createNewAccount("12341218749", AccountType.Company, new SavingAccountStrategy());
+//        accountService.createNewAccount("12341218749", AccountType.Company, new SavingAccountStrategy());
         accountService.deposit("12341218749", 300000);
 
 
