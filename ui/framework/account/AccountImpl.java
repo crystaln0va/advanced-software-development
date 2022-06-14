@@ -1,6 +1,5 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account;
 
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,12 +11,11 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Client;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.InterestStrategy;
 
-public class AccountImpl implements Account , Subject {
+public class AccountImpl implements Account, Subject {
     private AccountType accountType;
     private InterestStrategy interestStrategy;
     private List<Transaction> transactions = new ArrayList<>();
     private String accountNumber;
-
 
     private double balance = 0;
 
@@ -36,13 +34,14 @@ public class AccountImpl implements Account , Subject {
                 '}';
     }
 
-    private Transaction createTransaction(String description, double amount){
+    private Transaction createTransaction(String description, double amount) {
         Transaction transaction = new Transaction(LocalDate.now(), description, amount);
         transactions.add(transaction);
         return transaction;
     }
 
-    private AccountImpl() {}
+    private AccountImpl() {
+    }
 
     @Override
     public Transaction deposit(double amount) {
@@ -51,61 +50,61 @@ public class AccountImpl implements Account , Subject {
     }
 
     @Override
+
     public Transaction withdraw(double amount) {
-        if(balance >= amount){
+        if (balance >= amount) {
             balance -= amount;
             return createTransaction("WITHDRAW", amount);
         }
         return null;
+
     }
 
     @Override
     public void addInterest() {
-         balance += interestStrategy.calculateInterest(balance);
+        balance += interestStrategy.calculateInterest(balance);
     }
-//Observer Send Email
+    // Observer Send Email
 
     @Override
     public String getAccountNumber() {
         return accountNumber;
     }
 
-
     @Override
     public void registerObserver(Observer o) {
-      //  observers.add(o);
+        // observers.add(o);
     }
 
     @Override
     public void removeObserver(Observer o) {
-       // observers.remove(o);
+        // observers.remove(o);
     }
 
     @Override
     public void notifyObservers() {
 
-        //observers.forEach(o -> o.update(getBalance()));
+        // observers.forEach(o -> o.update(getBalance()));
     }
-
-
 
     // Builder
 
-    static class Builder{
+    static class Builder {
         String accountNumber;
         AccountType accountType;
         InterestStrategy interestStrategy;
-        public Builder(String accountNumber, AccountType accountType, InterestStrategy interestStrategy){
+
+        public Builder(String accountNumber, AccountType accountType, InterestStrategy interestStrategy) {
             this.accountType = accountType;
             this.accountNumber = accountNumber;
             this.interestStrategy = interestStrategy;
         }
 
-        public Builder customer(Client client){
+        public Builder customer(Client client) {
             return this;
         }
 
-        public Account build(){
+        public Account build() {
             AccountImpl account = new AccountImpl();
             account.accountNumber = accountNumber;
             account.accountType = accountType;
