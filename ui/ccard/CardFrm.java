@@ -5,8 +5,6 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.AccountServi
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.AccountServiceImpl;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Address;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Client;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.CompanyClient;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.CreditCardClient;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.DefaultInterestStrategy;
 
 import java.awt.BorderLayout;
@@ -204,7 +202,7 @@ public class CardFrm extends javax.swing.JFrame {
             service.createNewAccount(creditCardClient, ccnumber,
                     new CreditCardAccount(),
                     accountType == "Gold" ? new GoldStrategy() : accountType == "Silver" ? new SilverStrategy() : accountType == "Bronze" ? new BronzeStrategy() : new DefaultInterestStrategy());
-           // System.out.println(creditCardClient.toString());
+            // System.out.println(creditCardClient.toString());
             // add row to table
             rowdata[0] = clientName;
             rowdata[1] = ccnumber;
@@ -218,34 +216,34 @@ public class CardFrm extends javax.swing.JFrame {
 
 
     }
-  public void   readFromStorage(){
+
+    public void readFromStorage() {
         try {
 
-            List<Account> accountList=   service.getAllAccounts();
-            accountList.forEach(
-                    account -> System.out.println(account.getAccountNumber()+"exp"+account.getClient().getExpireDate()+
-                             "-" + account.getBalance() + "account Detail " + account.getClient().toString()));
-          for (Account account:accountList){
+            List<Account> accountList = service.getAllAccounts();
 
-            //  account.getAccountType().getAccountTypeName();
-              // System.out.println("account"+account.toString());
-              rowdata[0] = account.getClient().getName();
-              rowdata[1] = account.getAccountNumber();
-              rowdata[2] = account.getClient().getExpireDate();
-              rowdata[3] = account.getInterestStrategy().getStrategyType();
-              rowdata[4] = account.getBalance();
-              model.addRow(rowdata);
-              JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
-              newaccount = false;
-          }
+            for (Account account : accountList) {
+                CreditCardClient creditCardClient = (CreditCardClient) account.getClient();
+                // getExpireDate()
+                //  account.getAccountType().getAccountTypeName();
+                // System.out.println("account"+account.toString());
+                rowdata[0] = account.getClient().getName();
+                rowdata[1] = account.getAccountNumber();
+                rowdata[2] = creditCardClient.getExpireDate();
+                rowdata[3] = account.getInterestStrategy().getStrategyType();
+                rowdata[4] = String.format("%.3f", account.getBalance());
+                model.addRow(rowdata);
+                JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
+                newaccount = false;
+            }
 
 
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
 
         }
 
-}
+    }
+
     void JButtonGenerateBill_actionPerformed(java.awt.event.ActionEvent event) {
         JDialogGenBill billFrm = new JDialogGenBill();
         billFrm.setBounds(450, 20, 400, 350);

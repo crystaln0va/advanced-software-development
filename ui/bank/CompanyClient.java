@@ -1,6 +1,9 @@
-package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer;
+package edu.mum.cs.cs525.labs.exercises.project.ui.bank;
 
-public class CompanyClient extends Client{
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Address;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Client;
+
+public class CompanyClient extends Client {
     private Integer noEmployees;
 
     public Integer getNoEmployees() {

@@ -20,6 +20,6 @@ public class CreditCardFactory implements AccountFactory {
 
     @Override
     public Rule getNotificationRule() {
-        return new CreditCardNotifier();
+        return new CreditCardNotifierRule();
     }
 }

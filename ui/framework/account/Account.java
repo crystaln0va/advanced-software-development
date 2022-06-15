@@ -12,6 +12,7 @@ public interface Account extends Serializable {
     void addInterest();
     double getBalance();
 
+
     String getAccountNumber();
     Client getClient();
     AccountTypeStrategy getAccountType();

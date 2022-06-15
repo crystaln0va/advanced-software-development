@@ -18,7 +18,7 @@ public class BankingFactory implements AccountFactory {
     }
 
     @Override
-    public Rule getNotificationRule() {
-        return new PersonalBankingNotifier();
+    public Rule<?> getNotificationRule() {
+        return new PersonalBankingNotifierRule();
     }
 }

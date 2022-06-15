@@ -5,8 +5,6 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.AccountServi
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.AccountServiceImpl;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Address;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Client;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.CompanyClient;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.PersonalClient;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.DefaultInterestStrategy;
 
 import java.awt.*;
@@ -268,33 +266,26 @@ public class BankFrm extends javax.swing.JFrame {
         try {
 
             List<Account> accountList = service.getAllAccounts();
-            accountList.forEach(
-                    account -> System.out.println(account.getAccountNumber() + "exp" + account.getClient().getExpireDate() +
-                            "-" + account.getBalance() + "account Detail " + account.getClient().toString()));
             for (Account account : accountList) {
-
-                //  account.getAccountType().getAccountTypeName();
-                // System.out.println("account"+account.toString());
-
-    rowdata[0] = account.getAccountNumber();
-    rowdata[1] = account.getClient().getName();
-    rowdata[2] = account.getClient().getAddress().getCity();
-    rowdata[3] = account.getAccountType().getAccountTypeName();
-    rowdata[4] = account.getInterestStrategy().getStrategyType();
-    rowdata[5] = String.format("%.3f",account.getBalance());//account.getBalance();
+                rowdata[0] = account.getAccountNumber();
+                rowdata[1] = account.getClient().getName();
+                rowdata[2] = account.getClient().getAddress().getCity();
+                rowdata[3] = account.getAccountType().getAccountTypeName();
+                rowdata[4] = account.getInterestStrategy().getStrategyType();
+                rowdata[5] = String.format("%.3f", account.getBalance());
                 model.addRow(rowdata);
                 JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
-    newaccount = false;
-}
+                newaccount = false;
+            }
 
 
         } catch (Exception e) {
 
-                }
+        }
 
-                }
+    }
 
-                void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event) {
+    void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event) {
         // get selected name
         int selection = JTable1.getSelectionModel().getMinSelectionIndex();
         if (selection >= 0) {
