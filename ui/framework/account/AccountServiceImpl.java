@@ -1,6 +1,7 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account;
 
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type_strategy.AccountTypeStrategy;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Client;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.factory.AccountFactory;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.InterestStrategy;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.notification.Notifier;
@@ -39,7 +40,7 @@ public class AccountServiceImpl implements AccountService, Subject {
         Transaction transaction = account.withdraw(amount);
 
         boolean isApproved = true;
-        if(transaction == null)
+        if (transaction == null)
             isApproved = false;
 
         accountDao.saveAccount(account);
@@ -48,7 +49,11 @@ public class AccountServiceImpl implements AccountService, Subject {
 
     @Override
     public String getReport() {
-        accountDao.getAllAccounts().forEach(account -> System.out.println(account.getAccountNumber()+"-"+ account.getBalance()));
+     /*   accountDao.getAllAccounts().forEach(
+                account -> System.out.println(account.getAccountNumber()
+                + "-" + account.getBalance() + "account Detail " + account.getClient().toString()));
+
+      */
         return null;
     }
 
@@ -61,9 +66,9 @@ public class AccountServiceImpl implements AccountService, Subject {
     }
 
     @Override
-    public void createNewAccount(String accountNumber, AccountTypeStrategy accountType, InterestStrategy strategy) {
+    public void createNewAccount(Client client, String accountNumber, AccountTypeStrategy accountType, InterestStrategy strategy) {
         Account account = new AccountImpl
-                .Builder(accountNumber, accountType, strategy)
+                .Builder(client, accountNumber, accountType, strategy)
                 .build();
         accountDao.saveAccount(account);
     }
@@ -81,8 +86,8 @@ public class AccountServiceImpl implements AccountService, Subject {
 
     @Override
     public void notifyChanges(Transaction transaction, boolean isApproved) {
-        for(Observer o : observers)
-            o.update(transaction, isApproved );
+        for (Observer o : observers)
+            o.update(transaction, isApproved);
 
     }
 }
