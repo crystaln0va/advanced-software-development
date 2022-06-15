@@ -3,6 +3,7 @@ package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public enum InMemoryAccountDao implements AccountDao {
     INSTANCE;
@@ -19,6 +20,6 @@ public enum InMemoryAccountDao implements AccountDao {
 
     public List<Account> getAllAccounts(){
 
-        return accounts.values().stream().toList();
+        return accounts.values().stream().collect(Collectors.toList());
     }
 }

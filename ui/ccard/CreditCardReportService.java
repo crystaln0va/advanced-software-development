@@ -85,15 +85,5 @@ public class CreditCardReportService implements ReportingService {
         return summary;
     }
 
-    public static void main(String[] args) {
-        AccountService service1 = new AccountServiceImpl(new BankingFactory());
-        service1.createNewAccount("123",new CreditCardAccount(),new BronzeStrategy());
-        service1.deposit("123",450);
-        service1.deposit("123",550);
-        service1.deposit("123",1000);
-        service1.withdraw("123",10);
-        service1.withdraw("123",30);
-        service1.withdraw("123",60);
-        System.out.println(service1.getReport());
-    }
+
 }

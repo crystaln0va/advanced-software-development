@@ -1,10 +1,9 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account;
 
+import java.io.Serial;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-
 
 
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type_strategy.AccountTypeStrategy;
@@ -13,11 +12,22 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_str
 
 
 public class AccountImpl implements Account {
-    private AccountTypeStrategy accountType;
+    @Serial
+    private static final long serialVersionUID = 20220615L;
 
+    private AccountTypeStrategy accountType;
+    private Client client;
+
+    @Override
+    public AccountTypeStrategy getAccountType() {
+        return accountType;
+    }
+
+    @Override
     public InterestStrategy getInterestStrategy() {
         return interestStrategy;
     }
+
 
     private InterestStrategy interestStrategy;
     private List<Transaction> transactions = new ArrayList<>();
@@ -28,6 +38,8 @@ public class AccountImpl implements Account {
     public double getBalance() {
         return balance;
     }
+
+
 
     @Override
     public String toString() {
@@ -69,6 +81,7 @@ public class AccountImpl implements Account {
     @Override
     public void addInterest() {
         balance += interestStrategy.calculateInterest(balance);
+
     }
     // Observer Send Email
 
@@ -77,8 +90,14 @@ public class AccountImpl implements Account {
         return accountNumber;
     }
 
+
     public List<Transaction> getTransactions() {
         return transactions;
+    }
+
+    @Override
+    public Client getClient() {
+        return client;
     }
 
     // Builder
@@ -87,9 +106,10 @@ public class AccountImpl implements Account {
         String accountNumber;
         AccountTypeStrategy accountType;
         InterestStrategy interestStrategy;
+        Client client;
 
-        public Builder(String accountNumber, AccountTypeStrategy accountType, InterestStrategy interestStrategy){
-
+        public Builder(Client client, String accountNumber, AccountTypeStrategy accountType, InterestStrategy interestStrategy) {
+            this.client = client;
             this.accountType = accountType;
             this.accountNumber = accountNumber;
             this.interestStrategy = interestStrategy;
@@ -104,6 +124,7 @@ public class AccountImpl implements Account {
             account.accountNumber = accountNumber;
             account.accountType = accountType;
             account.interestStrategy = interestStrategy;
+            account.client = client;
             return account;
         }
 

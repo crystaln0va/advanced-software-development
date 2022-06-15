@@ -17,4 +17,9 @@ public class SilverStrategy implements InterestStrategy {
     public double minimumPaymentPercentage() {
         return 0.12;
     }
+
+    @Override
+    public String getStrategyType() {
+        return "Silver";
+    }
 }
