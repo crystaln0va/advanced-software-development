@@ -2,7 +2,8 @@ package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.notificatio
 
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.Transaction;
 
-public interface Rule {
-    boolean isNotify(Transaction transaction, boolean isApproved);
+import java.util.function.Predicate;
 
+public interface Rule <T> {
+    boolean isSatisfied(T object);
 }
