@@ -28,6 +28,7 @@ public class AccountImpl implements Account {
         return interestStrategy;
     }
 
+
     private InterestStrategy interestStrategy;
     private List<Transaction> transactions = new ArrayList<>();
     private String accountNumber;
@@ -89,11 +90,15 @@ public class AccountImpl implements Account {
         return accountNumber;
     }
 
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
     @Override
     public Client getClient() {
         return client;
     }
-
 
     // Builder
 
@@ -122,6 +127,8 @@ public class AccountImpl implements Account {
             account.client = client;
             return account;
         }
+
+
     }
 
 }

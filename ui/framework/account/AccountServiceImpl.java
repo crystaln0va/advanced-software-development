@@ -43,12 +43,9 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public String getReport() {
-        accountDao.getAllAccounts().forEach(
-                account -> System.out.println(account.getAccountNumber()+"exp"
-                + "-" + account.getBalance() + "account Detail " + account.getClient().toString()));
 
+        return factory.getReportService().getReport(accountDao.getAllAccounts());
 
-        return null;
     }
 
     @Override
