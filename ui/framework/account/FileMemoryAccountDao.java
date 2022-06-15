@@ -8,6 +8,7 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class FileMemoryAccountDao implements AccountDao {
 
@@ -41,7 +42,8 @@ public class FileMemoryAccountDao implements AccountDao {
 
     @Override
     public List<Account> getAllAccounts() {
-        return readFromStorage().values().stream().toList();
+        return new ArrayList<>(readFromStorage().values());
+//        return readFromStorage().values().stream().toList();
     }
 
     private Map<String, Account> readFromStorage() {

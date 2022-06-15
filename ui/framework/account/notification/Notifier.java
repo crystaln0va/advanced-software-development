@@ -20,10 +20,10 @@ public class Notifier implements Observer{
             String description = transaction.getDescription();
 
             StringBuilder sb = new StringBuilder();
-            sb.append("------------ transaction report -----------");
-            sb.append("Date " + date);
-            sb.append("amount " + amount);
-            sb.append("Description " + description);
+            sb.append("------------ transaction report -----------\n");
+            sb.append("Date " + date + "\n");
+            sb.append("amount " + amount + "\n");
+            sb.append("Description " + description + "\n");
             sb.toString();
             System.out.println(sb);
 
