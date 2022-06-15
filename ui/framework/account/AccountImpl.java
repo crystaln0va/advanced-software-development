@@ -1,5 +1,6 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account;
 
+import java.io.Serial;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,9 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_str
 
 
 public class AccountImpl implements Account {
+    @Serial
+    private static final long serialVersionUID = 20220615L;
+
     private AccountTypeStrategy accountType;
     private Client client;
     private InterestStrategy interestStrategy;

@@ -18,14 +18,15 @@ public class Notifier implements Observer {
     public void update(Transaction transaction, Account account) {
         // TODO: How to implement pull instead of push
         List<Rule<Transaction>> rules = account.getAccountType().getNotificationRules();
-        boolean rulesSatisfied = rules.stream().map(rule -> rule.isSatisfied(transaction)).reduce(true, (a, b) -> a && b);
+        boolean rulesSatisfied = rules.stream()
+                .map(rule -> rule.isSatisfied(transaction))
+                .reduce(true, (a, b) -> a && b);
 
-        if (rulesSatisfied){
+        if (rulesSatisfied)
             if(transaction == null)
                 sendDeclinedNotification();
             else
                 sendNotificationDetails(transaction);
-        }
     }
 
     private void sendNotificationDetails(Transaction transaction) {
