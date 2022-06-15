@@ -8,9 +8,9 @@ public class Application {
         AccountService service = new AccountServiceImpl(new BankingFactory());
 
         service.createNewAccount("12345", new CompanyAccount(), new SavingAccountStrategy());
-        service.deposit("12345", 5000);
+        service.subscribe(new Notifier());
 
-
+        service.deposit("12345", 50);
 
         service.getReport();
     }

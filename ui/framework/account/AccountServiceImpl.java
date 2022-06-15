@@ -3,14 +3,12 @@ package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type_strategy.AccountTypeStrategy;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.factory.AccountFactory;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.InterestStrategy;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.notification.Notifier;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.notification.Observer;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.notification.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountServiceImpl implements AccountService, Subject {
+public class AccountServiceImpl implements AccountService {
 
     private final AccountDao accountDao;
     private final AccountFactory factory;
@@ -21,16 +19,16 @@ public class AccountServiceImpl implements AccountService, Subject {
         this.accountDao = factory.getAccountDao();
         this.factory = factory;
         this.observers = new ArrayList<>();
-        subscribe(new Notifier(factory.getNotificationRule()));
+//        subscribe(new Notifier());
     }
 
     @Override
     public void deposit(String accountNumber, double amount) {
         Account account = accountDao.getAccountByAccountNumber(accountNumber);
         Transaction transaction = account.deposit(amount);
+
         accountDao.saveAccount(account);
-        boolean isApproved = true;
-        notifyChanges(transaction, isApproved);
+        notifyChanges(transaction, account);
     }
 
     @Override
@@ -38,12 +36,8 @@ public class AccountServiceImpl implements AccountService, Subject {
         Account account = accountDao.getAccountByAccountNumber(accountNumber);
         Transaction transaction = account.withdraw(amount);
 
-        boolean isApproved = true;
-        if(transaction == null)
-            isApproved = false;
-
         accountDao.saveAccount(account);
-        notifyChanges(transaction, isApproved);
+        notifyChanges(transaction, account);
     }
 
     @Override
@@ -56,7 +50,7 @@ public class AccountServiceImpl implements AccountService, Subject {
     public void addInterest() {
         List<Account> accounts = accountDao.getAllAccounts();
         accounts.forEach(Account::addInterest);
-        accounts.forEach(account -> accountDao.saveAccount(account));
+        accounts.forEach(accountDao::saveAccount);
 
     }
 
@@ -80,9 +74,9 @@ public class AccountServiceImpl implements AccountService, Subject {
     }
 
     @Override
-    public void notifyChanges(Transaction transaction, boolean isApproved) {
+    public void notifyChanges(Transaction transaction, Account account) {
         for(Observer o : observers)
-            o.update(transaction, isApproved );
+            o.update(transaction, account);
 
     }
 }

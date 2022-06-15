@@ -26,6 +26,11 @@ public class AccountImpl implements Account {
     }
 
     @Override
+    public AccountTypeStrategy getAccountType() {
+        return accountType;
+    }
+
+    @Override
     public String toString() {
         return "AccountImpl{" +
                 "accountType=" + accountType +
