@@ -17,4 +17,9 @@ public class BronzeStrategy implements InterestStrategy {
     public double minimumPaymentPercentage() {
         return 0.14;
     }
+
+    @Override
+    public String getStrategyType() {
+        return "Bronze";
+    }
 }

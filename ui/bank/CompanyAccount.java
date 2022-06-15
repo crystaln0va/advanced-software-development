@@ -8,7 +8,11 @@ import java.util.List;
 
 public class CompanyAccount implements AccountTypeStrategy {
     @Override
+    public String getAccountTypeName() {
+        return "Company";
+    }
     public List<Rule<Transaction>> getNotificationRules() {
         return List.of(new CompanyBankingNotifierRule());
+
     }
 }

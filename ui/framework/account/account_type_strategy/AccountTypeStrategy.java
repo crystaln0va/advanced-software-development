@@ -6,5 +6,9 @@ import java.io.Serializable;
 import java.util.List;
 
 public interface  AccountTypeStrategy extends Serializable {
+
+    public String getAccountTypeName() ;
+
     <T> List<Rule<T>> getNotificationRules();
+
 }

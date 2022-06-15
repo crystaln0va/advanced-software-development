@@ -19,4 +19,9 @@ public class DefaultInterestStrategy implements InterestStrategy {
     public double minimumPaymentPercentage() {
         return 0;
     }
+
+    @Override
+    public String getStrategyType() {
+        return "Default";
+    }
 }

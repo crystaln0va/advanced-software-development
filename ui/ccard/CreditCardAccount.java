@@ -8,7 +8,12 @@ import java.util.List;
 
 public class CreditCardAccount implements AccountTypeStrategy {
     @Override
+
+    public String getAccountTypeName() {
+        return "Credit";
+    }
     public List<Rule<Transaction>> getNotificationRules() {
         return List.of(new CreditCardNotifierRule());
+
     }
 }

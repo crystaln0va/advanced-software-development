@@ -5,7 +5,11 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Cli
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.InterestStrategy;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.notification.Subject;
 
+
+import java.util.List;
+
 public interface AccountService extends Subject {
+
     void deposit(String accountNumber, double amount);
 
     void withdraw(String accountNumber, double amount);
@@ -13,6 +17,7 @@ public interface AccountService extends Subject {
     String getReport();
 
     void addInterest();
+    List<Account> getAllAccounts();
 
     void createNewAccount(Client client, String accountNumber, AccountTypeStrategy accountType, InterestStrategy strategy);
 }
