@@ -49,11 +49,11 @@ public class AccountServiceImpl implements AccountService, Subject {
 
     @Override
     public String getReport() {
-     /*   accountDao.getAllAccounts().forEach(
-                account -> System.out.println(account.getAccountNumber()
+        accountDao.getAllAccounts().forEach(
+                account -> System.out.println(account.getAccountNumber()+"exp"+account.getClient().getExpireDate()
                 + "-" + account.getBalance() + "account Detail " + account.getClient().toString()));
 
-      */
+
         return null;
     }
 
@@ -63,6 +63,11 @@ public class AccountServiceImpl implements AccountService, Subject {
         accounts.forEach(Account::addInterest);
         accounts.forEach(account -> accountDao.saveAccount(account));
 
+    }
+
+    @Override
+    public List<Account> getAllAccounts() {
+        return   accountDao.getAllAccounts();
     }
 
     @Override

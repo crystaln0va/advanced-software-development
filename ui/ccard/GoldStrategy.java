@@ -17,4 +17,9 @@ public class GoldStrategy implements InterestStrategy {
     public double minimumPaymentPercentage() {
         return 0.10;
     }
+
+    @Override
+    public String getStrategyType() {
+        return "Gold";
+    }
 }

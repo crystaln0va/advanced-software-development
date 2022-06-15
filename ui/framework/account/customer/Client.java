@@ -7,6 +7,17 @@ public class Client implements Serializable {
     private String name;
     private Address address;
 
+    public String getName() {
+        return name;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 
     private String email;
 
@@ -23,5 +34,15 @@ public class Client implements Serializable {
                 ", address=" + address +
                 ", email='" + email + '\'' +
                 '}';
+    }
+    public String getExpireDate() {
+      return "";
+    }
+
+    public Integer getNoEmployees() {
+        return 0;
+    }
+    public String getBirthdate() {
+        return "";
     }
 }

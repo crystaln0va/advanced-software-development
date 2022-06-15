@@ -13,6 +13,17 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_str
 public class AccountImpl implements Account {
     private AccountTypeStrategy accountType;
     private Client client;
+
+    @Override
+    public AccountTypeStrategy getAccountType() {
+        return accountType;
+    }
+
+    @Override
+    public InterestStrategy getInterestStrategy() {
+        return interestStrategy;
+    }
+
     private InterestStrategy interestStrategy;
     private List<Transaction> transactions = new ArrayList<>();
     private String accountNumber;
@@ -63,6 +74,7 @@ public class AccountImpl implements Account {
     @Override
     public void addInterest() {
         balance += interestStrategy.calculateInterest(balance);
+
     }
     // Observer Send Email
 

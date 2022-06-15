@@ -8,4 +8,5 @@ public interface InterestStrategy extends Serializable {
     double calculateInterest(double balance);
 
     double minimumPaymentPercentage();
+     String getStrategyType() ;
 }

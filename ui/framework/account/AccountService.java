@@ -4,6 +4,8 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Client;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.InterestStrategy;
 
+import java.util.List;
+
 public interface AccountService {
     void deposit(String accountNumber, double amount);
 
@@ -12,6 +14,7 @@ public interface AccountService {
     String getReport();
 
     void addInterest();
+    List<Account> getAllAccounts();
 
     void createNewAccount(Client client, String accountNumber, AccountTypeStrategy accountType, InterestStrategy strategy);
 }

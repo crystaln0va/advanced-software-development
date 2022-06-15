@@ -32,4 +32,9 @@ public class SavingAccountStrategy implements InterestStrategy {
     public double minimumPaymentPercentage() {
         return 0;
     }
+
+    @Override
+    public String getStrategyType() {
+        return "Saving";
+    }
 }

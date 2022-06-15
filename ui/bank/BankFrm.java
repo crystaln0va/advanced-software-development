@@ -1,16 +1,16 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.bank;
 
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.Account;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.AccountService;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.AccountServiceImpl;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Address;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Client;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Company;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Personal;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.CompanyClient;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.PersonalClient;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.DefaultInterestStrategy;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.WindowEvent;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.*;
 
@@ -22,7 +22,7 @@ public class BankFrm extends javax.swing.JFrame {
      * init variables in the object
      ****/
     String accountnr, clientName, street, city, zip, state, accountType, clientType, amountDeposit, email, birthDate;
-    int noOfEmployees=0;
+    int noOfEmployees = 0;
     boolean newaccount;
     private DefaultTableModel model;
     private JTable JTable1;
@@ -40,11 +40,11 @@ public class BankFrm extends javax.swing.JFrame {
         setTitle("Bank Application.");
         setDefaultCloseOperation(javax.swing.JFrame.DO_NOTHING_ON_CLOSE);
         getContentPane().setLayout(new BorderLayout(0, 0));
-        setSize(575, 310);
+        setSize(1200, 310);
         setVisible(false);
         JPanel1.setLayout(null);
         getContentPane().add(BorderLayout.CENTER, JPanel1);
-        JPanel1.setBounds(0, 0, 575, 310);
+        JPanel1.setBounds(0, 0, 700, 310);
 		/*
 		/Add five buttons on the pane 
 		/for Adding personal account, Adding company account
@@ -61,12 +61,12 @@ public class BankFrm extends javax.swing.JFrame {
         model.addColumn("Amount");
         rowdata = new Object[8];
         newaccount = false;
-
+        readFromStorage();
 
         JPanel1.add(JScrollPane1);
-        JScrollPane1.setBounds(12, 92, 444, 160);
+        JScrollPane1.setBounds(12, 92, 630, 160);
         JScrollPane1.getViewport().add(JTable1);
-        JTable1.setBounds(0, 0, 420, 0);
+        JTable1.setBounds(0, 0, 500, 0);
 //        rowdata = new Object[8];
 
         JButton_PerAC.setText("Add personal account");
@@ -78,16 +78,16 @@ public class BankFrm extends javax.swing.JFrame {
         JButton_CompAC.setBounds(240, 20, 192, 33);
         JButton_Deposit.setText("Deposit");
         JPanel1.add(JButton_Deposit);
-        JButton_Deposit.setBounds(468, 104, 96, 33);
+        JButton_Deposit.setBounds(650, 104, 96, 33);
         JButton_Withdraw.setText("Withdraw");
         JPanel1.add(JButton_Withdraw);
         JButton_Addinterest.setBounds(448, 20, 106, 33);
         JButton_Addinterest.setText("Add interest");
         JPanel1.add(JButton_Addinterest);
-        JButton_Withdraw.setBounds(468, 164, 96, 33);
+        JButton_Withdraw.setBounds(650, 164, 96, 33);
         JButton_Exit.setText("Exit");
         JPanel1.add(JButton_Exit);
-        JButton_Exit.setBounds(468, 248, 96, 31);
+        JButton_Exit.setBounds(650, 248, 96, 31);
         // lineBorder1.setRoundedCorners(true);
         // lineBorder1.setLineColor(java.awt.Color.green);
         //$$ lineBorder1.move(24,312);
@@ -208,16 +208,17 @@ public class BankFrm extends javax.swing.JFrame {
 
         if (newaccount) {
             Address address = new Address(street, city, state, zip);
-            Client personalAccount = new Personal(clientName, address, email, birthDate);
+            Client personalAccount = new PersonalClient(clientName, address, email, birthDate);
             service.createNewAccount(personalAccount, accountnr,
                     new PersonalAccount(),
                     accountType == "Ch" ? new CheckingAccountStrategy() : accountType == "S" ? new SavingAccountStrategy() : new DefaultInterestStrategy());
             // add row to table
+
             rowdata[0] = accountnr;
             rowdata[1] = clientName;
             rowdata[2] = city;
-            rowdata[3] = "P";
-            rowdata[4] = accountType;
+            rowdata[3] = "Personal";
+            rowdata[4] = accountType == "Ch" ? "Checking" : accountType == "S" ? "Saving" : "Default";
             rowdata[5] = "0";
             model.addRow(rowdata);
             JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
@@ -244,17 +245,17 @@ public class BankFrm extends javax.swing.JFrame {
         if (newaccount) {
 
             Address address = new Address(street, city, state, zip);
-            Client personalAccount = new Company(clientName, address, email,noOfEmployees);
-            service.createNewAccount(personalAccount, accountnr,
-                    new PersonalAccount(),
+            Client companyAccount = new CompanyClient(clientName, address, email, noOfEmployees);
+            service.createNewAccount(companyAccount, accountnr,
+                    new CompanyAccount(),
                     accountType == "Ch" ? new CheckingAccountStrategy() : accountType == "S" ? new SavingAccountStrategy() : new DefaultInterestStrategy());
 
             // add row to table
             rowdata[0] = accountnr;
             rowdata[1] = clientName;
             rowdata[2] = city;
-            rowdata[3] = "C";
-            rowdata[4] = accountType;
+            rowdata[3] = "Company";
+            rowdata[4] = accountType == "Ch" ? "Checking" : accountType == "S" ? "Saving" : "Default";
             rowdata[5] = "0";
             model.addRow(rowdata);
             JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
@@ -263,7 +264,37 @@ public class BankFrm extends javax.swing.JFrame {
 
     }
 
-    void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event) {
+    public void readFromStorage() {
+        try {
+
+            List<Account> accountList = service.getAllAccounts();
+            accountList.forEach(
+                    account -> System.out.println(account.getAccountNumber() + "exp" + account.getClient().getExpireDate() +
+                            "-" + account.getBalance() + "account Detail " + account.getClient().toString()));
+            for (Account account : accountList) {
+
+                //  account.getAccountType().getAccountTypeName();
+                // System.out.println("account"+account.toString());
+
+    rowdata[0] = account.getAccountNumber();
+    rowdata[1] = account.getClient().getName();
+    rowdata[2] = account.getClient().getAddress().getCity();
+    rowdata[3] = account.getAccountType().getAccountTypeName();
+    rowdata[4] = account.getInterestStrategy().getStrategyType();
+    rowdata[5] = String.format("%.3f",account.getBalance());//account.getBalance();
+                model.addRow(rowdata);
+                JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
+    newaccount = false;
+}
+
+
+        } catch (Exception e) {
+
+                }
+
+                }
+
+                void JButtonDeposit_actionPerformed(java.awt.event.ActionEvent event) {
         // get selected name
         int selection = JTable1.getSelectionModel().getMinSelectionIndex();
         if (selection >= 0) {
@@ -307,8 +338,7 @@ public class BankFrm extends javax.swing.JFrame {
             model.setValueAt(String.valueOf(newamount), selection, 5);
             if (newamount < 0) {
                 JOptionPane.showMessageDialog(JButton_Withdraw, " Account " + accnr + " : balance is negative: $" + String.valueOf(newamount) + " !", "Warning: negative balance", JOptionPane.WARNING_MESSAGE);
-            }
-            else {
+            } else {
                 service.withdraw(accountnr, deposit);
                 service.getReport();
             }
@@ -320,6 +350,15 @@ public class BankFrm extends javax.swing.JFrame {
     void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event) {
         JOptionPane.showMessageDialog(JButton_Addinterest, "Add interest to all accounts", "Add interest to all accounts", JOptionPane.WARNING_MESSAGE);
         service.addInterest();
-        service.getReport();
+        if (model.getRowCount() > 0) {
+            for (int i = model.getRowCount() - 1; i > -1; i--) {
+                model.removeRow(i);
+            }
+
+            readFromStorage();
+            service.getReport();
+        }
+
+
     }
 }
