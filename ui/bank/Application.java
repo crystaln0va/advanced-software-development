@@ -7,8 +7,8 @@ public class Application {
     public static void main(String[] args) {
         AccountService service = new AccountServiceImpl(new BankingFactory());
 
-        service.createNewAccount("12345", new CompanyAccount(), new SavingAccountStrategy());
-        service.deposit("12345", 5000);
+     //   service.createNewAccount("12345", new CompanyAccount(), new SavingAccountStrategy());
+     //   service.deposit("12345", 5000);
 
 
 

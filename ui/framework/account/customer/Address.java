@@ -1,8 +1,27 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer;
 
-public class Address {
+import java.io.Serializable;
+
+public class Address implements Serializable {
     private String street;
     private String city;
     private String state;
-    private Integer zipcode;
+    private String zipcode;
+
+    public Address(String street, String city, String state, String zipcode) {
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
+    }
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "street='" + street + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zipcode='" + zipcode + '\'' +
+                '}';
+    }
 }
