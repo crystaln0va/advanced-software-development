@@ -52,7 +52,7 @@ public class AccountServiceImpl implements AccountService, Subject {
      /*   accountDao.getAllAccounts().forEach(
                 account -> System.out.println(account.getAccountNumber()
                 + "-" + account.getBalance() + "account Detail " + account.getClient().toString()));
-                
+
       */
         return null;
     }
