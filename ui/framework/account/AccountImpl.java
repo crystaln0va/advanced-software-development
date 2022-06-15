@@ -15,6 +15,10 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_str
 public class AccountImpl implements Account {
     private AccountTypeStrategy accountType;
 
+    public InterestStrategy getInterestStrategy() {
+        return interestStrategy;
+    }
+
     private InterestStrategy interestStrategy;
     private List<Transaction> transactions = new ArrayList<>();
     private String accountNumber;
@@ -73,7 +77,9 @@ public class AccountImpl implements Account {
         return accountNumber;
     }
 
-
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
 
     // Builder
 
@@ -100,6 +106,8 @@ public class AccountImpl implements Account {
             account.interestStrategy = interestStrategy;
             return account;
         }
+
+
     }
 
 }

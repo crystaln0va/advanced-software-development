@@ -48,8 +48,9 @@ public class AccountServiceImpl implements AccountService, Subject {
 
     @Override
     public String getReport() {
-        accountDao.getAllAccounts().forEach(account -> System.out.println(account.getAccountNumber()+"-"+ account.getBalance()));
-        return null;
+        //accountDao.getAllAccounts().forEach(account -> System.out.println(account.getAccountNumber()+"-"+ account.getBalance()));
+        
+        return factory.getReportService().getReport(accountDao.getAllAccounts());
     }
 
     @Override
