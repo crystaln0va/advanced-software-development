@@ -4,7 +4,6 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.AccountServi
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.AccountServiceImpl;
 
 
-
 import edu.mum.cs.cs525.labs.exercises.project.ui.bank.CompanyAccount;
 import edu.mum.cs.cs525.labs.exercises.project.ui.ccard.CreditCardAccount;
 import edu.mum.cs.cs525.labs.exercises.project.ui.bank.PersonalAccount;
@@ -17,7 +16,7 @@ import edu.mum.cs.cs525.labs.exercises.project.ui.bank.SavingAccountStrategy;
 
 public class Application {
     public static void main(String[] args) {
-        AccountService bankingService = new AccountServiceImpl(new BankingFactory());
+       /* AccountService bankingService = new AccountServiceImpl(new BankingFactory());
         AccountService creditCardService = new AccountServiceImpl(new CreditCardFactory());
 
         creditCardService.createNewAccount("12345", new CreditCardAccount(), new GoldStrategy());
@@ -41,6 +40,6 @@ public class Application {
       bankingService.addInterest();
       bankingService.getReport();
 
-
+*/
     }
 }

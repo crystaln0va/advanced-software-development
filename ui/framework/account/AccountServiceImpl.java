@@ -1,6 +1,7 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.framework.account;
 
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.account_type_strategy.AccountTypeStrategy;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Client;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.factory.AccountFactory;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.InterestStrategy;
 import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.notification.Observer;
@@ -42,7 +43,11 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public String getReport() {
-        accountDao.getAllAccounts().forEach(account -> System.out.println(account.getAccountNumber()+"-"+ account.getBalance()));
+     /*   accountDao.getAllAccounts().forEach(
+                account -> System.out.println(account.getAccountNumber()
+                + "-" + account.getBalance() + "account Detail " + account.getClient().toString()));
+                
+      */
         return null;
     }
 
@@ -55,9 +60,9 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void createNewAccount(String accountNumber, AccountTypeStrategy accountType, InterestStrategy strategy) {
+    public void createNewAccount(Client client, String accountNumber, AccountTypeStrategy accountType, InterestStrategy strategy) {
         Account account = new AccountImpl
-                .Builder(accountNumber, accountType, strategy)
+                .Builder(client, accountNumber, accountType, strategy)
                 .build();
         accountDao.saveAccount(account);
     }
