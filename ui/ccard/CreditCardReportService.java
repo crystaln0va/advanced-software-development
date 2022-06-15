@@ -15,31 +15,29 @@ public class CreditCardReportService implements ReportingService {
         List<Transaction> previousMonthTransactions = new ArrayList<Transaction>();
         List<Transaction> currentMonthTransactions = new ArrayList<Transaction>();
         LocalDate lt = LocalDate.now();
-        double less;
-        double more;
-        double netBalance;
-        double chargesSum;
-        double paymentsSum;
+        double withdrawalSumLastMonth;
+        double depositSumLastMonth;
+        double balanceLastMonth;
+        double withdrawalSumThisMonth;
+        double depositSumThisMonth;
         double newBalance;
         double totalDue;
-        InterestStrategy interestPercent;
+        InterestStrategy percentFinder;
         String summary = "";
 
-        // Net balance last month
         for (Account a : allAccounts) {
-            less=0;
-            more=0;
-            netBalance=0;
-            chargesSum=0;
-            paymentsSum=0;
+            withdrawalSumLastMonth=0;
+            depositSumLastMonth=0;
+            withdrawalSumThisMonth=0;
+            depositSumThisMonth=0;
             newBalance=0;
             totalDue=0;
+            balanceLastMonth=0;
         
             try {
                 AccountImpl impl = (AccountImpl) a;
-                interestPercent = impl.getInterestStrategy();
+                percentFinder = impl.getInterestStrategy();
                 List<Transaction> allTransactions = impl.getTransactions();
-                
 
                 for (Transaction t : allTransactions) {
                     if (t.getDate().getMonthValue() == lt.getMonthValue()-1) {  // last month
@@ -51,44 +49,39 @@ public class CreditCardReportService implements ReportingService {
 
                 for (Transaction t : previousMonthTransactions) {
                     if (t.getDescription().equalsIgnoreCase("withdrawal")) {
-                        less += t.getAmount();
+                        withdrawalSumLastMonth += t.getAmount();
                     } else if (t.getDescription().equalsIgnoreCase("deposit")) {
-                        more += t.getAmount();
+                        depositSumLastMonth += t.getAmount();
                     }
-                    
                 }
-                netBalance = more - less;
 
-
-                
                 for (Transaction t : currentMonthTransactions) {
                     // Total withdrawals / charges this month
                     if (t.getDescription().equalsIgnoreCase("withdrawal")) {
-                        chargesSum += t.getAmount();
+                        withdrawalSumThisMonth += t.getAmount();
                     // Total deposits / payments this month
                     } else if (t.getDescription().equalsIgnoreCase("deposit")) {
-                        paymentsSum += t.getAmount();
+                        depositSumThisMonth += t.getAmount();
                     }
                 }
-                
-                newBalance = netBalance - paymentsSum + chargesSum + interestPercent.getInterestPercentage() * (netBalance - paymentsSum);
-                totalDue = interestPercent.minimumPaymentPercentage() * newBalance;
-                
-                
+                // Balance from last month
+                balanceLastMonth =  a.getBalance() + depositSumThisMonth - withdrawalSumThisMonth +
+                                    depositSumLastMonth - withdrawalSumLastMonth;
 
+                newBalance = balanceLastMonth - depositSumThisMonth + withdrawalSumThisMonth + percentFinder.getInterestPercentage() * (balanceLastMonth - depositSumThisMonth);
+                totalDue = percentFinder.minimumPaymentPercentage() * newBalance;
             } catch (Exception e) {
                 System.out.println("Unimplemented account");
                 e.printStackTrace();
             }
 
-            summary +=   "Previous month balance: " + netBalance +
-                        "\nTotal charges this month: " + chargesSum +
-                        "\nTotal payments this month: " + paymentsSum +
+            summary +=   "Previous month balance: " + balanceLastMonth +
+                        "\nTotal charges this month: " + withdrawalSumThisMonth +
+                        "\nTotal payments this month: " + depositSumThisMonth +
                         "\nNew balance: " + newBalance +
                         "\nTotal due: " + totalDue +
                         "\n";
         }
-        
         return summary;
     }
 
@@ -103,5 +96,4 @@ public class CreditCardReportService implements ReportingService {
         service1.withdraw("123",60);
         System.out.println(service1.getReport());
     }
-
 }
