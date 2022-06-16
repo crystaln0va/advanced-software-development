@@ -3,7 +3,6 @@ package edu.mum.cs.cs525.labs.exercises.project.ui.ccard;
 		A basic implementation of the JDialog class.
 */
 
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.AccountService;
 
 import java.awt.*;
 import javax.swing.*;

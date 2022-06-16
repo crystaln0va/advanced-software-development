@@ -1,8 +1,8 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.bank;
 
 
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Address;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Client;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.customer.Address;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.customer.Client;
 
 public class PersonalClient extends Client {
 

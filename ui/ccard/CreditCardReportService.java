@@ -1,15 +1,17 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.ccard;
 
-import edu.mum.cs.cs525.labs.exercises.project.ui.bank.BankingFactory;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.*;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.InterestStrategy;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.Account;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.AccountImpl;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.Transaction;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.interest_strategy.InterestStrategy;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.report.ReportingService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class CreditCardReportService implements ReportingService {
+public class CreditCardReportService extends ReportingService {
     @Override
     public String getReport(List<Account> allAccounts) {
         List<Transaction> previousMonthTransactions = new ArrayList<Transaction>();

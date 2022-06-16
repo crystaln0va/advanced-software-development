@@ -2,11 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="311dd749-2e0e-4a89-95f1-fcf4e8e25717" name="Changes" comment="Latest changes and updates">
-      <change beforePath="$PROJECT_DIR$/framework/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/framework/account/FileMemoryAccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/framework/account/FileMemoryAccountDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/data_store/Banking" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/FileMemoryAccountDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/FileMemoryAccountDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bank/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/bank/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_store/Banking" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/BankFrm$SymAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/BankFrm$SymAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/BankFrm$SymWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/BankFrm$SymWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/BankFrm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/BankFrm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/BankingFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/BankingFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/CheckingAccountStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/CheckingAccountStrategy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/CompanyAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/CompanyAccount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/PersonalAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/PersonalAccount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/SavingAccountStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/bank/SavingAccountStrategy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/BronzeStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/BronzeStrategy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/CardFrm$SymAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/CardFrm$SymAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/CardFrm$SymWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/CardFrm$SymWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/CardFrm.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/CardFrm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/CreditCardAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/CreditCardAccount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/CreditCardFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/CreditCardFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/GoldStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/GoldStrategy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/JDialog_AddCCAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/JDialog_AddCCAccount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/SilverStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/ccard/SilverStrategy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/data_store/Banking" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/data_store/Banking" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/AccountImpl$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/AccountImpl$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/AccountImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/AccountImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/AccountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/AccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/AccountServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/account_type_strategy/AccountTypeStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/account_type_strategy/AccountTypeStrategy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/customer/Address.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/customer/Address.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/customer/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/customer/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/customer/Company.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/customer/Personal.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/factory/AccountFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/factory/AccountFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/factory/TestingFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/factory/TestingFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/interest_strategy/DefaultInterestStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/interest_strategy/DefaultInterestStrategy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/interest_strategy/InterestStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ui/edu/mum/cs/cs525/labs/exercises/project/ui/framework/account/interest_strategy/InterestStrategy.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,18 +63,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
-  <component name="RunManager" selected="Application.Application">
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.BankFrm">
+    <configuration name="Application (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.mum.cs.cs525.labs.exercises.project.ui.RetailApp.Application" />
+      <module name="ui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.mum.cs.cs525.labs.exercises.project.ui.RetailApp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.mum.cs.cs525.labs.exercises.project.ui.framework.Application" />
       <module name="ui" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="edu.mum.cs.cs525.labs.exercises.project.ui.framework.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.mum.cs.cs525.labs.exercises.project.ui.bank.Application" />
+      <module name="ui" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.mum.cs.cs525.labs.exercises.project.ui.bank.CompanyAccount" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -93,10 +151,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Application" />
-        <item itemvalue="Application.FileMemoryAccountDao" />
-        <item itemvalue="Application.CardFrm" />
         <item itemvalue="Application.BankFrm" />
+        <item itemvalue="Application.CardFrm" />
+        <item itemvalue="Application.Application" />
+        <item itemvalue="Application.Application (1)" />
+        <item itemvalue="Application.FileMemoryAccountDao" />
       </list>
     </recent_temporary>
   </component>
@@ -108,6 +167,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1655148399086</updated>
+      <workItem from="1655244380996" duration="65000" />
+      <workItem from="1655319140148" duration="1812000" />
+      <workItem from="1655392869628" duration="465000" />
     </task>
     <task id="LOCAL-00001" summary="Skeleton">
       <created>1655152788827</created>
@@ -125,6 +187,9 @@
     </task>
     <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

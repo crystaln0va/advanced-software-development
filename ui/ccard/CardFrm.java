@@ -1,11 +1,11 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.ccard;
 
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.Account;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.AccountService;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.AccountServiceImpl;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Address;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.customer.Client;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.DefaultInterestStrategy;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.Account;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.AccountService;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.AccountServiceImpl;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.customer.Address;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.customer.Client;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.interest_strategy.DefaultInterestStrategy;
 
 import java.awt.BorderLayout;
 import java.util.List;

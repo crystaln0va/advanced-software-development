@@ -1,26 +1,14 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.bank;
 
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.Account;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.AccountDao;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.FileMemoryAccountDao;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.ReportingService;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.factory.AccountFactory;
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.notification.Rule;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.dao.AccountDao;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.dao.FileMemoryAccountDao;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.report.ReportingService;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.factory.AccountFactory;
 
 public class BankingFactory implements AccountFactory {
     @Override
     public AccountDao getAccountDao() {
         return FileMemoryAccountDao.getInstance("Banking");
-    }
-
-    @Override
-    public Account createAccount() {
-        return null;
-    }
-
-    @Override
-    public Rule<?> getNotificationRule() {
-        return new PersonalBankingNotifierRule();
     }
 
     @Override

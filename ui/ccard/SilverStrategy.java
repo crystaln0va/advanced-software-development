@@ -1,6 +1,6 @@
 package edu.mum.cs.cs525.labs.exercises.project.ui.ccard;
 
-import edu.mum.cs.cs525.labs.exercises.project.ui.framework.account.interest_strategy.InterestStrategy;
+import edu.mum.cs.cs525.labs.exercises.project.ui.framework.interest_strategy.InterestStrategy;
 
 public class SilverStrategy implements InterestStrategy {
     @Override
