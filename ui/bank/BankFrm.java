@@ -273,7 +273,7 @@ public class BankFrm extends javax.swing.JFrame {
                 rowdata[2] = account.getClient().getAddress().getCity();
                 rowdata[3] = account.getAccountType().getAccountTypeName();
                 rowdata[4] = account.getInterestStrategy().getStrategyType();
-                rowdata[5] = String.format("%.3f", account.getBalance());
+                rowdata[5] = account.getBalance();
                 model.addRow(rowdata);
                 JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
                 newaccount = false;
@@ -298,13 +298,12 @@ public class BankFrm extends javax.swing.JFrame {
             dep.show();
 
             // compute new amount
-            long deposit = Long.parseLong(amountDeposit);
-            String samount = (String) model.getValueAt(selection, 5);
-            long currentamount = Long.parseLong(samount);
-            long newamount = currentamount + deposit;
+            double deposit = Double.parseDouble(amountDeposit);
+            double currentamount = (double) model.getValueAt(selection, 5);
+            double newamount = currentamount + deposit;
             model.setValueAt(String.valueOf(newamount), selection, 5);
 
-            service.deposit(accountnr, deposit);
+            service.deposit(accnr, deposit);
             service.getReport();
         }
 
@@ -323,15 +322,14 @@ public class BankFrm extends javax.swing.JFrame {
             wd.show();
 
             // compute new amount
-            long deposit = Long.parseLong(amountDeposit);
-            String samount = (String) model.getValueAt(selection, 5);
-            long currentamount = Long.parseLong(samount);
-            long newamount = currentamount - deposit;
+            double deposit = Double.parseDouble(amountDeposit);
+            double currentamount = (double) model.getValueAt(selection, 5);
+            double newamount = currentamount - deposit;
             model.setValueAt(String.valueOf(newamount), selection, 5);
             if (newamount < 0) {
                 JOptionPane.showMessageDialog(JButton_Withdraw, " Account " + accnr + " : balance is negative: $" + String.valueOf(newamount) + " !", "Warning: negative balance", JOptionPane.WARNING_MESSAGE);
             } else {
-                service.withdraw(accountnr, deposit);
+                service.withdraw(accnr, deposit);
                 service.getReport();
             }
         }
