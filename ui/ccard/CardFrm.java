@@ -245,7 +245,8 @@ public class CardFrm extends javax.swing.JFrame {
     }
 
     void JButtonGenerateBill_actionPerformed(java.awt.event.ActionEvent event) {
-        JDialogGenBill billFrm = new JDialogGenBill();
+     //   System.out.println("report"+service.getReport());
+        JDialogGenBill billFrm = new JDialogGenBill(service.getReport());
         billFrm.setBounds(450, 20, 400, 350);
         billFrm.show();
 
