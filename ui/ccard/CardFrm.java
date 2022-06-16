@@ -231,7 +231,8 @@ public class CardFrm extends javax.swing.JFrame {
                 rowdata[1] = account.getAccountNumber();
                 rowdata[2] = creditCardClient.getExpireDate();
                 rowdata[3] = account.getInterestStrategy().getStrategyType();
-                rowdata[4] = String.format("%.3f", account.getBalance());
+                rowdata[4] = String.valueOf( account.getBalance());//String.format("%.3f", account.getBalance());
+                rowdata[4] = String.valueOf( account.getBalance());//String.format("%.3f", account.getBalance());
                 model.addRow(rowdata);
                 JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
                 newaccount = false;
@@ -257,6 +258,7 @@ public class CardFrm extends javax.swing.JFrame {
         int selection = JTable1.getSelectionModel().getMinSelectionIndex();
         if (selection >= 0) {
             String name = (String) model.getValueAt(selection, 0);
+            String accnr = (String) model.getValueAt(selection, 1);
 
             //Show the dialog for adding deposit amount for the current mane
             JDialog_Deposit dep = new JDialog_Deposit(thisframe, name);
@@ -264,13 +266,19 @@ public class CardFrm extends javax.swing.JFrame {
             dep.show();
 
             // compute new amount
-            long deposit = Long.parseLong(amountDeposit);
-            String samount = (String) model.getValueAt(selection, 4);
-            long currentamount = Long.parseLong(samount);
-            long newamount = currentamount + deposit;
+//            long deposit = Long.parseLong(amountDeposit);
+//            String samount = (String) model.getValueAt(selection, 4);
+//            long currentamount = Long.parseLong(samount);
+//            long newamount = currentamount + deposit;
+//            model.setValueAt(String.valueOf(newamount), selection, 4);
+
+            double deposit = Double.parseDouble(amountDeposit);
+            double currentamount = Double.parseDouble((String)model.getValueAt(selection, 4)) ;
+            double newamount = currentamount + deposit;
             model.setValueAt(String.valueOf(newamount), selection, 4);
-            service.deposit(ccnumber, deposit);
-            service.getReport();
+
+            service.deposit(accnr, deposit);
+      //      service.getReport();
         }
 
 
@@ -281,6 +289,7 @@ public class CardFrm extends javax.swing.JFrame {
         int selection = JTable1.getSelectionModel().getMinSelectionIndex();
         if (selection >= 0) {
             String name = (String) model.getValueAt(selection, 0);
+            String accnr = (String) model.getValueAt(selection, 1);
 
             //Show the dialog for adding withdraw amount for the current mane
             JDialog_Withdraw wd = new JDialog_Withdraw(thisframe, name);
@@ -288,16 +297,21 @@ public class CardFrm extends javax.swing.JFrame {
             wd.show();
 
             // compute new amount
-            long deposit = Long.parseLong(amountDeposit);
-            String samount = (String) model.getValueAt(selection, 4);
-            long currentamount = Long.parseLong(samount);
-            long newamount = currentamount - deposit;
-            model.setValueAt(String.valueOf(newamount), selection, 4);
+//            long deposit = Long.parseLong(amountDeposit);
+//            String samount = (String) model.getValueAt(selection, 4);
+//            long currentamount = Long.parseLong(samount);
+//            long newamount = currentamount - deposit;
+
+            double deposit = Double.parseDouble(amountDeposit);
+            double currentamount = Double.parseDouble((String)model.getValueAt(selection, 4)) ;
+            double newamount = currentamount - deposit;
+
             if (newamount < 0) {
                 JOptionPane.showMessageDialog(JButton_Withdraw, " " + name + " Your balance is negative: $" + String.valueOf(newamount) + " !", "Warning: negative balance", JOptionPane.WARNING_MESSAGE);
             } else {
-                service.withdraw(ccnumber, deposit);
-                service.getReport();
+                service.withdraw(accnr, deposit);
+                model.setValueAt(String.valueOf(newamount), selection, 4);
+               // service.getReport();
             }
 
         }
