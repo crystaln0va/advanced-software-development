@@ -273,7 +273,7 @@ public class BankFrm extends javax.swing.JFrame {
                 rowdata[2] = account.getClient().getAddress().getCity();
                 rowdata[3] = account.getAccountType().getAccountTypeName();
                 rowdata[4] = account.getInterestStrategy().getStrategyType();
-                rowdata[5] = account.getBalance();
+                rowdata[5] =String.valueOf( account.getBalance());
                 model.addRow(rowdata);
                 JTable1.getSelectionModel().setAnchorSelectionIndex(-1);
                 newaccount = false;
@@ -299,12 +299,12 @@ public class BankFrm extends javax.swing.JFrame {
 
             // compute new amount
             double deposit = Double.parseDouble(amountDeposit);
-            double currentamount = (double) model.getValueAt(selection, 5);
+            double currentamount = Double.parseDouble((String)model.getValueAt(selection, 5)) ;
             double newamount = currentamount + deposit;
             model.setValueAt(String.valueOf(newamount), selection, 5);
 
             service.deposit(accnr, deposit);
-            service.getReport();
+     //      service.getReport();
         }
 
 
@@ -323,14 +323,15 @@ public class BankFrm extends javax.swing.JFrame {
 
             // compute new amount
             double deposit = Double.parseDouble(amountDeposit);
-            double currentamount = (double) model.getValueAt(selection, 5);
+            double currentamount = Double.parseDouble((String)model.getValueAt(selection, 5)) ;
             double newamount = currentamount - deposit;
-            model.setValueAt(String.valueOf(newamount), selection, 5);
+
             if (newamount < 0) {
                 JOptionPane.showMessageDialog(JButton_Withdraw, " Account " + accnr + " : balance is negative: $" + String.valueOf(newamount) + " !", "Warning: negative balance", JOptionPane.WARNING_MESSAGE);
             } else {
+                model.setValueAt(String.valueOf(newamount), selection, 5);
                 service.withdraw(accnr, deposit);
-                service.getReport();
+              //  service.getReport();
             }
         }
 
