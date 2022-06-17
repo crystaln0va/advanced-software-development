@@ -207,8 +207,8 @@ public class BankFrm extends javax.swing.JFrame {
 
         if (newaccount) {
             Address address = new Address(street, city, state, zip);
-            Client personalAccount = new PersonalClient(clientName, address, email, birthDate);
-            service.createNewAccount(personalAccount, accountnr,
+            Client personalClient = new PersonalClient(clientName, address, email, birthDate);
+            service.createNewAccount(personalClient, accountnr,
                     new PersonalAccount(),
                     accountType == "Ch" ? new CheckingAccountStrategy() : accountType == "S" ? new SavingAccountStrategy() : new DefaultInterestStrategy());
             // add row to table
@@ -244,8 +244,8 @@ public class BankFrm extends javax.swing.JFrame {
         if (newaccount) {
 
             Address address = new Address(street, city, state, zip);
-            Client companyAccount = new CompanyClient(clientName, address, email, noOfEmployees);
-            service.createNewAccount(companyAccount, accountnr,
+            Client companyClient = new CompanyClient(clientName, address, email, noOfEmployees);
+            service.createNewAccount(companyClient, accountnr,
                     new CompanyAccount(),
                     accountType == "Ch" ? new CheckingAccountStrategy() : accountType == "S" ? new SavingAccountStrategy() : new DefaultInterestStrategy());
 
